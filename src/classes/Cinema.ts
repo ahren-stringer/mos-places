@@ -1,0 +1,14 @@
+
+module.exports =  class Cinema {
+
+    private static url: string = 'https://apidata.mos.ru/v1/datasets/495/rows?api_key=c70b711784b712cbe482f9701909fd97'
+
+    public static getAll(): Promise<any> {
+        return fetch(`${Cinema.url}`)
+            .then(response => response.json())
+    }
+    public static getOne(id: number): Promise<any> {
+        return fetch(`${Cinema.url}&$skip=${id-1}&$top=1`)
+            .then(response => response.json())
+    }
+}
