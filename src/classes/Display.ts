@@ -1,4 +1,4 @@
-module.exports = class Display {
+export default class Display {
 
     /*
         * Главная обертка

@@ -1,13 +1,14 @@
-const CinemaType = require('../types/CinemaType.ts')
-let Display = require('./Display.ts')
+import yaMap from '../services/yaMap';
+import {CinemaType} from '../types/CinemaType'
+import Display from './Display'
 
-module.exports = class CinemaDisplay extends Display {
+export default class CinemaDisplay extends Display {
 
     /*
         * Список
     */
 
-    public static dispalyList(list: Array<typeof CinemaType>): void {
+    public static dispalyList(list: Array<CinemaType>): void {
 
         let listElem = document.querySelector('.list-group');
 
@@ -24,7 +25,6 @@ module.exports = class CinemaDisplay extends Display {
             let target = event.target as HTMLElement
           
             if (target.tagName != 'LI') return; 
-            //aria-current="true"
           
             if (listElem.querySelector('.active')) listElem.querySelector('.active').classList.remove('active')
 
@@ -62,19 +62,13 @@ module.exports = class CinemaDisplay extends Display {
             <div id="map" style="width: 100%; height: 400px"></div>
             `
         )
-        ymaps.ready(init);
-        function init() {
-            var myMap = new ymaps.Map("map", {
-                center: [+(coord[1].toFixed(2)), +(coord[0].toFixed(2))],
-                zoom: 16
-            });
-        }
+        yaMap(coord)
     }
     /*
         * Информационная страница
     */
 
-    public static dispalyInfoPage(cinema: typeof CinemaType): void {
+    public static dispalyInfoPage(cinema: CinemaType): void {
         this.clearPagePart('.main-content')
         this.dispalyInfoProperty('', cinema.Cells.CommonName)
         this.dispalyInfoProperty('Адрес:', cinema.Cells.ObjectAddress[0].Address)
