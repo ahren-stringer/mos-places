@@ -2,8 +2,8 @@ export default class Cinema {
 
     private static url: string = 'https://apidata.mos.ru/v1/datasets/495/rows?api_key=c70b711784b712cbe482f9701909fd97'
 
-    public static getAll(): Promise<any> {
-        return fetch(`${Cinema.url}`)
+    public static getAll(categoryId: number | string): Promise<any> {
+        return fetch(`https://apidata.mos.ru/v1/datasets/${categoryId}/rows?api_key=c70b711784b712cbe482f9701909fd97`)
             .then(response => response.json())
     }
     public static getOne(id: number): Promise<any> {

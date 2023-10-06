@@ -9,6 +9,9 @@
 
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet"
         integrity="sha384-9ndCyUaIbzAi2FUVXJi0CjmCapSmO7SnpJef0486qhLnuZ2cdeRhO02iuK6FUUVM" crossorigin="anonymous">
+
+    <link rel="stylesheet" href="src/css/style.css">
+
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"
         integrity="sha384-geWF76RCwLtnZ8qwWowPQNguL3RmwHVBC9FhGdlKrxdiJJigb/j/68SIy3Te4Bkz"
         crossorigin="anonymous"></script>
@@ -19,16 +22,29 @@
 <body>
 
     <header>
-        <nav class="navbar bg-body-tertiary mb-5">
+        <nav class="navbar bg-body-tertiary">
             <div class="container">
-                <span class="navbar-brand mb-0 h1">Кинотеатры москвы</span>
+                <span class="navbar-brand mb-0 h1">Места Москвы</span>
             </div>
         </nav>
     </header>
 
+    <div class="mobile-menu-btn" data-sidebar-open>
+        <div class="mobile-menu-btn__inner">
+            <div class="mobile-menu-btn__icon">
+                <!-- <svg class="icon mobile-menu-btn__icon-img">
+                    <use xlink:href="./public/images/icons/sprite.svg#icon-burger-menu"></use>
+                </svg> -->
+            </div>
+            <div class="mobile-menu-btn__text">
+                Список мест
+            </div>
+        </div>
+    </div>
+
     <main class="container">
 
-        <div class="main-row row">
+        <div class="main-row row mt-5">
 
             <!-- <div class="d-flex justify-content-center align-items-center" style="height:70vh">
                 <div class="spinner-border text-primary" role="status">
@@ -36,8 +52,8 @@
                 </div>
             </div> -->
 
-            <!-- <div class="col-3 aside">
-                <ul class="list-group">
+            <div class="col-xxl-3 col-lg-0 aside">
+                <!-- <ul class="list-group">
                     <li class="list-group-item active" aria-current="true">Кинотеатр «Москино Молодежный»</li>
                     <li class="list-group-item">Кинотеатр «Москино Молодежный»</li>
                     <li class="list-group-item">Кинотеатр «Москино Молодежный»</li>
@@ -55,14 +71,111 @@
                     <li class="list-group-item">Кинотеатр «Москино Молодежный»</li>
                     <li class="list-group-item">Кинотеатр «Москино Молодежный»</li>
                     <li class="list-group-item">Кинотеатр «Москино Молодежный»</li>
-                </ul>
+                </ul> -->
+
+                <div class="sidemenu">
+
+                    <div class="sidemenu__page-blure" data-page-blure>
+                        <div class="sidemenu__page-blure-overlay"></div>
+                        <div class="sidemenu__page-blure-effect">
+                            <div class="sidemenu__page-blure-effect-layer"></div>
+                        </div>
+                    </div>
+
+                    <div class="sidemenu__wrapper" data-sidebar>
+
+                        <div class="sidemenu__title">
+                            <div class="sidemenu__title-text">
+                                Список мест
+                            </div>
+                            <div class="sidemenu__close-btn" data-sidebar-close>
+                                <!-- <svg class="icon sidemenu__close-btn-img">
+                                    <use xlink:href="./public/images/icons/sprite.svg#icon-close"></use>
+                                </svg> -->
+                                X
+                            </div>
+                        </div>
+
+                        <nav class="sidemenu__nav">
+                            <ul class="sidemenu__list">
+                                <li class="sidemenu__item">
+                                    <a href="#" class="sidemenu__item-link">
+                                        Избранное
+                                    </a>
+
+                                    <ul class="sidemenu__list sidemenu__list--submenu">
+                                        <li class="sidemenu__item">
+                                            <a href="#" class="sidemenu__item-link">
+                                                Избранное
+                                            </a>
+                                        </li>
+                                        <li class="sidemenu__item">
+                                            <a href="#" class="sidemenu__item-link">
+                                                Моя Компания
+                                            </a>
+                                        </li>
+                                        <li class="sidemenu__item">
+                                            <a href="#" class="sidemenu__item-link">
+                                                Мое Развитие
+                                            </a>
+                                        </li>
+                                        <li class="sidemenu__item">
+                                            <a href="#" class="sidemenu__item-link">
+                                                Новости компании
+                                            </a>
+                                        </li>
+                                        <li class="sidemenu__item">
+                                            <a href="#" class="sidemenu__item-link">
+                                                Телефонная книга
+                                            </a>
+                                        </li>
+                                        <li class="sidemenu__item">
+                                            <a href="#" class="sidemenu__item-link">
+                                                Избранное
+                                            </a>
+                                        </li>
+                                    </ul>
+                                </li>
+                                <li class="sidemenu__item">
+                                    <a href="#" class="sidemenu__item-link">
+                                        Моя Компания
+                                    </a>
+                                </li>
+                                <li class="sidemenu__item">
+                                    <a href="#" class="sidemenu__item-link">
+                                        Мое Развитие
+                                    </a>
+                                </li>
+                                <li class="sidemenu__item">
+                                    <a href="#" class="sidemenu__item-link">
+                                        Новости компании
+                                    </a>
+                                </li>
+                                <li class="sidemenu__item">
+                                    <a href="#" class="sidemenu__item-link">
+                                        Телефонная книга
+                                    </a>
+                                </li>
+                                <li class="sidemenu__item">
+                                    <a href="#" class="sidemenu__item-link">
+                                        Избранное
+                                    </a>
+                                </li>
+                            </ul>
+                        </nav>
+
+                    </div>
+
+                </div>
+
+
             </div>
-            <div class="col-9 main-content">
-                <div class="d-flex justify-content-center align-items-center" style="height:70vh">
+            <div class="col-xxl-9 col-xl-12 main-content">
+                <!-- <div class="d-flex justify-content-center align-items-center" style="height:70vh">
                     <div class="spinner-border text-primary" role="status">
                         <span class="visually-hidden">Loading...</span>
                     </div>
-                </div> 
+                </div>  -->
 
                  <div class="jumbotron">
                     <h1 class="display-4">Добро пожаловать на мой сйт</h1>
@@ -171,28 +284,11 @@
 
             </div>
 
-        </div> -->
+        </div>
     </main>
 
-    <script type="text/javascript">
-        // // Функция ymaps.ready() будет вызвана, когда
-        // // загрузятся все компоненты API, а также когда будет готово DOM-дерево.
-        // ymaps.ready(init);
-        // function init() {
-        //     // Создание карты.
-        //     var myMap = new ymaps.Map("map", {
-        //         // Координаты центра карты.
-        //         // Порядок по умолчанию: «широта, долгота».
-        //         // Чтобы не определять координаты центра карты вручную,
-        //         // воспользуйтесь инструментом Определение координат.
-        //         center: [55.76, 37.64],
-        //         // Уровень масштабирования. Допустимые значения:
-        //         // от 0 (весь мир) до 19.
-        //         zoom: 16
-        //     });
-        // }
-    </script>
-    <script src="../dist/bundle.js"></script>
+    <script src="./dist/bundle.js"></script>
+
 </body>
 
 </html>

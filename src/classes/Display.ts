@@ -1,4 +1,10 @@
-export default class Display {
+/*
+* Основной функционал рендеринга
+*/
+
+import { CinemaType } from "../types/CinemaType"
+
+export default abstract class Display {
 
     /*
         * Главная обертка
@@ -10,8 +16,16 @@ export default class Display {
         * Функция отчистки перед отрисовкой
     */
 
-    protected static clearPagePart(partSelector: string): void {
-        document.querySelector(partSelector).innerHTML = ''
+    protected static clearPagePart(part: string  | HTMLElement): void {
+
+        if (typeof part =='string'){
+            document.querySelector(part).innerHTML = ''
+        }else{
+            part.innerHTML = ''
+        }
+
     }
+
+    // protected static print(cinema?: CinemaType): void;
 
 }

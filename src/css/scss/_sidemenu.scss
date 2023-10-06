@@ -1,0 +1,193 @@
+.sidemenu {
+    &__page-blure {
+        position: fixed;
+        top: 0;
+        left: 0;
+
+        z-index: 80;
+
+        display: none;
+
+        &--active {
+            display: block;
+        }
+
+        &-overlay {
+            position: fixed;
+            width: 100%;
+            height: 100vh;
+            z-index: 100;
+            background-color: #000;
+            opacity: .5;
+        }
+
+        &-effect {
+            position: fixed;
+            width: 100%;
+            height: 100vh;
+            z-index: 80;
+
+            &-layer {
+                position: relative;
+                width: 100%;
+                height: 100%;
+
+                &::after {
+                    content: "";
+                    position: absolute;
+                    width: 100%;
+                    height: 100%;
+                    backdrop-filter: blur(5px);
+                    pointer-events: none;
+                }
+            }
+        }
+    }
+
+    &__wrapper {
+
+        width: 100%;
+        // height: 100vh;
+
+        z-index: 100;
+
+        position: fixed;
+        top: 0;
+        left: 0;
+
+        translate: 100%;
+
+        transition: translate $transition-duration;
+
+        background-color: $element-background;
+        box-shadow: $box-shadow-sidebar;
+
+        // overflow: auto;
+
+        @media #{$screen-tablet} {
+            width: rem(375px);
+
+            left: auto;
+            right: 0;
+        }
+
+        @media #{$screen-desktop} {
+            z-index: 0;
+
+            position: static;
+
+            translate: 0;
+
+            border-radius: rem(8px);
+            width: rem(286px);
+            height: auto;
+        }
+
+        &--active {
+            translate: 0;
+        }
+    }
+
+    &__title {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+
+        position: fixed;
+        width: 100%;
+
+        padding: rem(13px) rem(20px) rem(16px);
+        margin-bottom: rem(10px);
+
+        border-bottom: 1px solid $blue-haze;
+
+        @media #{$screen-desktop} {
+            display: none;
+        }
+
+        &-text {
+            font-size: rem($font-size-big-text);
+            line-height: rem($line-height-big-text);
+            font-weight: $font-weight-medium;
+        }
+    }
+
+    &__close {
+        &-btn {
+            &-img {
+                width: rem(24px);
+                height: rem(24px);
+                color: $link-color;
+
+                cursor: pointer;
+            }
+        }
+    }
+
+    &__item {
+        &:hover{
+            background-color: $alabaster;
+        }
+
+        &--active &{
+            &-link{
+                font-weight: $font-weight-medium;
+            }
+        }
+
+        &-link {
+            padding: rem(9px) rem(20px) rem(11px);
+    
+            display: block;
+    
+            color: $bunker;
+            font-size: rem($font-size-regular);
+            line-height: $line-height-regular;
+    
+            @media #{$screen-desktop}{
+                padding: rem(21px) rem(30px);
+            }
+        }
+    }
+
+    &__nav {
+        margin-top: rem(64px);
+        height: calc(100vh -64px);
+
+        overflow: auto;
+
+        @media #{$screen-desktop}{
+            margin-top: 0;
+            height: auto;
+        }
+    }
+
+        & .simplebar-scrollbar::before {
+        background-color: $summer-sky;
+        opacity: 1 !important;
+        width: 5px;
+    }
+    
+    & .simplebar-track {
+        right: 6px;
+        background: $athens-gray;
+        width: 3px;
+        overflow: visible;
+
+        @media #{$screen-desktop} {
+            display: none;
+        }
+    }
+    
+    & .simplebar-track.simplebar-vertical {
+        top: 5px;
+        width: 3px;
+        height: calc(100vh -74px);
+        opacity: 0.8;
+    }
+    
+    & .simplebar-scrollbar:before {
+        left: -1px;
+    }
+
+}
