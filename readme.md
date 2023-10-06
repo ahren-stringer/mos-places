@@ -4,7 +4,7 @@
 
 ### Написано с использованием TypeScript, HTML, CSS, WebPack
 
-Ссылка на сайт - [https://mos-places.onrender.com](https://mos-places.onrender.com)
+Ссылка на сайт - [https://ahren-stringer.github.io/mos-places/](https://ahren-stringer.github.io/mos-places/)
 
 ***
 
