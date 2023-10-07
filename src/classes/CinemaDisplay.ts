@@ -33,6 +33,13 @@ export default class CinemaDisplay extends Display {
 
             target.classList.add('active')
         })
+
+        let submenu_items = document.querySelectorAll('.sidemenu__list--submenu .sidemenu__item-link')
+        console.log(submenu_items)
+        for (var i = 0; i < submenu_items.length; i++) {
+            submenu_items[i].addEventListener('click', MainDisplay.close);
+        }
+
     }
 
     /*

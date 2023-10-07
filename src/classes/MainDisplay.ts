@@ -1,5 +1,14 @@
 import Display from './Display'
 
+const ELEMENTS_SELECTOR = {
+    sidebar: '[data-sidebar]',
+    sidebarOpen: '[data-sidebar-open]',
+    sidebarClose: '[data-sidebar-close]',
+    blure: '[data-page-blure]',
+    page: '[data-page]',
+};
+
+
 export default class MainDisplay extends Display {
 
     /*
@@ -8,7 +17,7 @@ export default class MainDisplay extends Display {
 
     public static displayLoader(outer: string | HTMLElement): void {
 
-        if(typeof outer =='string'){
+        if (typeof outer == 'string') {
             this.clearPagePart(outer)
 
             document.querySelector(outer).insertAdjacentHTML(
@@ -21,7 +30,7 @@ export default class MainDisplay extends Display {
                 </div>
                  `
             );
-        }else{
+        } else {
             this.clearPagePart(outer)
 
             outer.insertAdjacentHTML(
@@ -120,32 +129,11 @@ export default class MainDisplay extends Display {
 
         // Мобильное меню
 
-        const ELEMENTS_SELECTOR = {
-            sidebar: '[data-sidebar]',
-            sidebarOpen: '[data-sidebar-open]',
-            sidebarClose: '[data-sidebar-close]',
-            blure: '[data-page-blure]',
-            page: '[data-page]',
-        };
+        document.querySelector(ELEMENTS_SELECTOR.sidebarOpen).addEventListener('click', MainDisplay.open);
 
+        document.querySelector(ELEMENTS_SELECTOR.sidebarClose).addEventListener('click', MainDisplay.close);
 
-        function close() {
-            document.querySelector(ELEMENTS_SELECTOR.sidebar).classList.remove('sidemenu__wrapper--active')
-            document.querySelector(ELEMENTS_SELECTOR.blure).classList.remove('sidemenu__page-blure--active')
-            document.querySelector(ELEMENTS_SELECTOR.page).classList.remove('page--not-scrolable')
-        }
-
-        document.querySelector(ELEMENTS_SELECTOR.sidebarOpen).addEventListener('click', function () {
-            document.querySelector(ELEMENTS_SELECTOR.sidebar).classList.add('sidemenu__wrapper--active')
-            document.querySelector(ELEMENTS_SELECTOR.blure).classList.add('sidemenu__page-blure--active')
-            document.querySelector(ELEMENTS_SELECTOR.page).classList.add('page--not-scrolable')
-        });
-
-        document.querySelector(ELEMENTS_SELECTOR.sidebarClose).addEventListener('click', close);
-
-        document.querySelector(ELEMENTS_SELECTOR.blure).addEventListener('click', close);
-
-
+        document.querySelector(ELEMENTS_SELECTOR.blure).addEventListener('click', MainDisplay.close);
 
     }
 
@@ -169,6 +157,18 @@ export default class MainDisplay extends Display {
               </div> 
                  `
         );
+    }
+
+    public static close() {
+        document.querySelector(ELEMENTS_SELECTOR.sidebar).classList.remove('sidemenu__wrapper--active')
+        document.querySelector(ELEMENTS_SELECTOR.blure).classList.remove('sidemenu__page-blure--active')
+        document.querySelector(ELEMENTS_SELECTOR.page).classList.remove('page--not-scrolable')
+    }
+
+    public static open() {
+        document.querySelector(ELEMENTS_SELECTOR.sidebar).classList.add('sidemenu__wrapper--active')
+        document.querySelector(ELEMENTS_SELECTOR.blure).classList.add('sidemenu__page-blure--active')
+        document.querySelector(ELEMENTS_SELECTOR.page).classList.add('page--not-scrolable')
     }
 
 }
