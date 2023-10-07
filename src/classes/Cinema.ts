@@ -6,8 +6,8 @@ export default class Cinema {
         return fetch(`https://apidata.mos.ru/v1/datasets/${categoryId}/rows?api_key=c70b711784b712cbe482f9701909fd97`)
             .then(response => response.json())
     }
-    public static getOne(id: number): Promise<any> {
-        return fetch(`${Cinema.url}&$skip=${id - 1}&$top=1`)
+    public static getOne(cat_id: number ,id: number): Promise<any> {
+        return fetch(`https://apidata.mos.ru/v1/datasets/${cat_id}/rows?api_key=c70b711784b712cbe482f9701909fd97&$skip=${id - 1}&$top=1`)
             .then(response => response.json())
 
         /*

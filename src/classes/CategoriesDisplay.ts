@@ -59,6 +59,8 @@ export default class CatagoriesDisplay extends Display {
             Cinema.getAll(target.dataset.id)
                 .then((data: Array<CinemaType>) => {
 
+                    let cat_id = target.dataset.id;
+
                     CinemaDisplay.dispalyList(submenu, data)
 
                     submenu.addEventListener('click', function (event: MouseEvent) {
@@ -71,7 +73,7 @@ export default class CatagoriesDisplay extends Display {
                         CinemaDisplay.clearPagePart('.main-content')
                         MainDisplay.displayLoader('.main-content')
             
-                        Cinema.getOne(+target.dataset.id)
+                        Cinema.getOne(+cat_id,+target.dataset.id)
                             .then((cinema: Array<CinemaType>) => {
                                 let CD = new CinemaDisplay()
             
